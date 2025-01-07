@@ -1,4 +1,4 @@
-Sur le footer de la page d'accueirl on trouve trois liens de redirections.
+   Sur le footer de la page d'accueirl on trouve trois liens de redirections.
 On peut modifier le lien de redirections, on sapercoit que le back ne verifie pas si le lien est valide ou non
 
 Risque : 
