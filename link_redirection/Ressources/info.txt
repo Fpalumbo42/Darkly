@@ -1,0 +1,10 @@
+Sur le footer de la page d'accueirl on trouve trois liens de redirections.
+On peut modifier le lien de redirections, on sapercoit que le back ne verifie pas si le lien est valide ou non
+
+Risque : 
+- Redirection vers un site malveillant
+
+solution :
+- Verifier si le lien est valide ou non dans le back
+- Utiliser une liste blanche pour les liens de redirections
+

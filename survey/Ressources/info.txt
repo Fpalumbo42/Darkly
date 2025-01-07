@@ -1,0 +1,10 @@
+                Survey
+
+le formulaire present sur la page survey est vulnerable, en effet en modifiant la valeur d'un field dans le front
+on peut choisir le nombre de point que l'on veut attribuer a un utilisateur.
+
+Risque :
+- Une triche dans le sondage.
+
+Solution :
+- Gerer le nombre de point attribuer a un utilisateur dans le back.

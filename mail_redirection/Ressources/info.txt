@@ -1,0 +1,15 @@
+                Mail redirection
+
+Depuis la page sign in on peut acceder a la page "i forgot my password", 
+depuis celle si on peut remarquer en ispectant le bouton submit que le mail utilise par ladmin pour recevoir les demandes est en clair dans le front.
+
+Risque :
+- Un attaquant peut recevoir lui meme la demande de reinitialisation de mot de passe.
+- Un attaquant peut recevoir des informations confidentielles sur l'admin.
+- posibilite de spam.
+
+Solution :
+- Gerer le mail de reception des demandes de reinitialisation de mot de passe dans le back.
+- Ne pas afficher le mail de reception des demandes de reinitialisation de mot de passe dans le front.
+
+ 
